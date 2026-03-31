@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Distance Monitor</title>
+    <script>
+        async function fetchDistance() {
+            const response = await fetch('http://192.168.100.64:5000/get_distance');
+            const data = await response.json();
+            document.getElementById('distance').innerText = data.distance + " cm";
+        }
+
+        setInterval(fetchDistance, 1000);
+    </script>
+</head>
+<body>
+    <h1>Odległość:</h1>
+    <p id="distance">Ładowanie...</p>
+</body>
+</html>
